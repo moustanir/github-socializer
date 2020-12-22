@@ -1,0 +1,14 @@
+version: "3.8"
+services: 
+  frontapp:
+    build: ./docker
+    container_name: socialFrontApp
+    ports:
+      - 80:3000
+    volumes: 
+      - ./public:/app/public
+      - ./src:/app/src
+      - /app/node_modules
+      # - ../:/app/node_modules FOR DEBUG ONLY
+    environment:
+      - CHOKIDAR_USEPOLLING=true
